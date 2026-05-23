@@ -60,3 +60,14 @@ jobs:
       - name: Run Lint
         run: |
           flake8 .
+
+## DVC Data Versioning
+
+This project uses DVC to track and version the insurance dataset.
+
+### Setup
+```bash
+dvc init
+dvc add data/insurance.csv
+dvc remote add -d localstorage C:\dvc-storage
+dvc push
