@@ -13,10 +13,16 @@ def load_data(file_path):
         return df
 
     except FileNotFoundError:
-        print("File not found.")
+        raise FileNotFoundError(
+            f"File not found: {file_path}"
+        )
 
     except pd.errors.EmptyDataError:
-        print("File is empty.")
+        raise ValueError(
+            "Dataset file is empty."
+        )
 
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        raise Exception(
+            f"Unexpected error: {e}"
+        )
